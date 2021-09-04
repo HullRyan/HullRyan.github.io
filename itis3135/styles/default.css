@@ -1,0 +1,62 @@
+body
+{
+	font-family: 'Roboto Condensed', sans-serif;
+	color: #cfd6ea ;
+	background-color: #0f0a0a;
+	margin-left: 20%;
+	margin-right: 20%;
+	
+}
+
+
+header, footer, nav
+{
+	text-align: center;
+	color: #fed766;
+	font-weight: bold;
+}
+
+h1, h2, h3
+{
+	color: FFefbd;
+	font-family: 'PT Serif', serif;
+	text-align: center;
+}
+
+h3
+{
+	font-size: 200%;
+	line-height: 0px;
+}
+
+a
+{
+	text-decoration: none;
+	color: #fe4a49;
+}
+
+a:hover
+{
+	color: #fed766;
+}
+
+figure
+{
+	text-align: center;
+}
+
+figcaption
+{
+	font-style: italic;
+}
+
+
+nav
+{
+	text-align: center;
+}
+
+.portrait img {
+    width:100%;
+    max-width:600px;
+}
