@@ -64,7 +64,6 @@ table
 {
 	border-collapse: collapse;
 	color: #fed766;
-	margin: 20px;
 }
 
 thead
@@ -93,4 +92,11 @@ tbody tr:nth-child(odd) td
 tbody tr:nth-child(even) td
 {
 	background-color: #1C1C1C;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	list-style-position: inside;
 }
