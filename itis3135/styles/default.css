@@ -100,3 +100,30 @@ tbody tr:nth-child(even) td
 	text-align: center;
 	list-style-position: inside;
 }
+
+.box {
+
+	background-color: #cfd6ea;
+	color: #0f0a0a;
+	font-weight: 600;
+	font-size: 110%;
+	padding: 40px;
+	border-radius: 10px;
+	display: block;
+	text-align: left;
+}
+
+input[type=text], input[type=email], input[type=tel], select {
+	width: 100%;
+	margin: 2px -13px;
+	padding: 15px 10px;
+}
+
+input[type=submit]{
+	width: 100%;
+	background-color: #3c3c3b;
+	color: #cfd6ea;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+}
