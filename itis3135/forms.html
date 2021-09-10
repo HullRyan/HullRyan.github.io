@@ -26,13 +26,13 @@
         <div class="box">
         <form>
             <label for="contact">How did you hear about us?</label><br>
-            <select>
-                <option>Blog</option>
-                <option>Advertisement</option>
-                <option>Online</option>
-                <option>Other</option>
+            <select name="contact" id="contact">
+                <option value="blog">Blog</option>
+                <option value="advertisement">Advertisement</option>
+                <option value="online">Online</option>
+                <option value="other">Other</option>
             </select>
-            </br>
+            <br>
             <label for="name">Name: *</label>
             <input type="text" id="name" name="name" required size="20" placeholder="Name"><br>
             <label for="phone">Phone:</label><br>
@@ -41,11 +41,11 @@
             <input type="email" id="email" name="email" placeholder="Email" required><br>
             <label>Which type of coffee bean is your favorite?</label><br>
             <input type="radio" id="arabica" name="favorite_coffee" value="arabica">
-            <label for="">Arabica</label><br>
+            <label for="arabica">Arabica</label><br>
             <input type="radio" id="robusta" name="favorite_coffee" value="robusta">
-            <label for="">Robusta</label><br>
+            <label for="robusta">Robusta</label><br>
             <input type="radio" id="liberica" name="favorite_coffee" value="liberica">
-            <label for="">Liberica</label><br>
+            <label for="liberica">Liberica</label><br>
             <label for="ads">Would you like to here about offers from our sponsors?</label><br>
             <input type="checkbox" id="ads" name="ads" value="Ads"><br>
             <input type="submit" value="Submit">
