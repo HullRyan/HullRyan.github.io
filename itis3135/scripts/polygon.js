@@ -1,24 +1,28 @@
 //Main function that occurs when button is pressed
-function polygonInput() {
+function polygonInput() 
+{
     sides = validateEntry();
     polygonName = getShape(sides);
     displayPolygon(polygonName, sides);
 }
 
 //Looks up polygon name from stored array
-function getShape(sides) {
+function getShape(sides) 
+{
     return(polygons[sides-1]);
 }
 
 //Display function which diplays sides entered from user and polygon name
-function displayPolygon(polygonName, sides) {
+function displayPolygon(polygonName, sides) 
+{
     document.getElementById("polygonDisplay").innerHTML = 
         "Your chosen polygon is a: " + polygonName + 
         "<br/>It has: " + sides + " sides";
 }
 
 //Validates user entry through a loop and if statements
-function validateEntry() {
+function validateEntry() 
+{
     
     var input;
     
@@ -36,7 +40,8 @@ function validateEntry() {
 }
 
 //Array that holds polygon names according to index+1
-var polygons = [
+var polygons = 
+[
     "henagon",
     "digon",
     "triangle",
