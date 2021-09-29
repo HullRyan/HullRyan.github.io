@@ -102,7 +102,6 @@ tbody tr:nth-child(even) td
 }
 
 .box {
-
 	background-color: #cfd6ea;
 	color: #0f0a0a;
 	font-weight: 600;
@@ -110,7 +109,12 @@ tbody tr:nth-child(even) td
 	padding: 40px;
 	border-radius: 10px;
 	display: block;
-	text-align: left;
+	text-align: center;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 input[type=text], input[type=email], input[type=tel], select {
@@ -126,4 +130,12 @@ input[type=submit]{
 	border: none;
 	border-radius: 5px;
 	padding: 10px;
+}
+
+button {
+	border: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px;
+	background-color: ;
 }
