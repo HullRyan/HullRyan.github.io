@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="Description" content="Testing website for accessibility.">
+
+  <!-- css -->
+  <link rel="stylesheet" href="Activity_Accessibility.css">
+  <title>Test For Accessibility</title>
+
+</head>
+
+<body>
+  <header>
+    <h3>Candle Delight</h1>
+  </header>
+  <main>
+
+    <table class="center">
+
+      <caption>Candles</caption>
+      <thead>
+        <tr>
+          <!-- identify table headers <th> with scope attribute -->
+          <th >TYPE</th>
+          <th >PRODUCT</th>
+          <th >FEATURES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Birthday Candles</th>
+          <td> <img src="./images/Birthday-Candles.jpg" alt="Birthday Candles" width="150px" height="100px"> </td>
+          <td>
+            <ol>
+              <li>Comes in many very vibrant colors</li>
+              <li>Small and slendor size allows many customization options to personalize your dessert</li>
+              <li>Cheap cost allows for larger quantities</li>
+            </ol>
+          </td>   
+        </td>
+        </tr>
+        <tr>
+            <th>Votives</th>
+            <td> <img src="./images/voltives.jpeg" alt="Votives" width="150px" height="100px"> </td>
+            <td>
+              <ol>
+                <li>Comes in many very vibrant colors</li>
+                <li>Small and slendor size allows many customization options to personalize your dessert</li>
+                <li>Cheap cost allows for larger quantities</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+              <th>Taper candles</th>
+              <td> <img src="./images/taper-candles.jpg" alt="Taper Candles" width="150px" height="100px"> </td>
+              <td>
+                <ol>
+                  <li>Comes in many very vibrant colors</li>
+                  <li>Small and slendor size allows many customization options to personalize your dessert</li>
+                  <li>Cheap cost allows for larger quantities</li>
+                </ol>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+     <!--Add the form here-->
+     <form action"#">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="phone">Phone Number: Format 123-456-7890</label><br>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
+      <input type="submit" value="Submit">
+    </form> 
+   
+    <div class="whitespace"></div>
+    <a href="https://teachaccess.github.io/tutorial/#/12">Click here to find more about accessibility</a>
+    <div class="whitespace"></div>
+
+    <a href="https://dequeuniversity.com/rules/axe/3.2/color-contrast"> Find out if your font
+      color and background color passes WCAG standard!</a>
+  </main>
+
+  <footer>
+    <a
+        href="https://validator.w3.org/nu/?doc=https://webpages.uncc.edu/rhull8/itis3135/arrays.html"
+      >
+        <img
+          src="../images/button-valid-html5.gif"
+          width="88"
+          height="31"
+          alt="Link to HTML validator"
+      /></a>
+
+      <a
+        href="https://jigsaw.w3.org/css-validator/validator?uri=webpages.uncc.edu%2Frhull8%2Fitis3135%2FAccessibility%2FActivity_Acessibility.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en"
+      >
+        <img
+          src="../images/button-valid-css.gif"
+          width="88"
+          height="31"
+          alt="Link to CSS validator"
+      /></a>
+  </footer>
+</body>
+</html>

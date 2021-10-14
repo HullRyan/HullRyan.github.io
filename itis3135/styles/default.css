@@ -56,6 +56,7 @@ nav
 
 table
 {
+	margin-top: 20px;
 	border-collapse: collapse;
 	color: #fed766;
 }
@@ -105,10 +106,15 @@ tbody tr:nth-child(even) td
 	display: block;
 	text-align: center;
 	margin-bottom: 20px;
+	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.box-display {
+	padding-top: 20px;
 }
 
 input[type=text], input[type=email], input[type=tel], select {
@@ -131,6 +137,15 @@ button {
     border-radius: 15px;
     padding: 10px;
     margin: 5px;
+}
+
+button:focus {
+	background-color: #fed766;
+}
+
+.button-row {
+	margin-top: 20px;
+	position: relative;
 }
 
 .calculator {
