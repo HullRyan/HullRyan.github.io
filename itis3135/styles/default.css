@@ -3,9 +3,7 @@ body
 	font-family: 'Roboto Condensed', sans-serif;
 	color: #cfd6ea ;
 	background-color: #0f0a0a;
-	margin-left: 20%;
-	margin-right: 20%;
-	
+
 }
 
 
@@ -232,4 +230,43 @@ figcaption {
 	color: #cfd6ea;
 	text-align: center;
 	padding: 5px;
+}
+
+.photo-list img {
+	width: 32.5%;
+	max-width: 200px;
+	margin: auto;
+}
+
+.slideshow {
+	display: flex;
+	justify-content: center
+}
+
+.slideshow ul {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.slideshow li {
+	display: inline;
+}
+
+.main-photo {
+	width: 75%;
+}
+
+.main-photo img {
+	width: 100%;
+}
+
+.slideshow-side {
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+}
+
+#caption {
+	margin-top: 0;
+	padding-top: 5px;
 }
