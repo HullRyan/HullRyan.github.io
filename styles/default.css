@@ -1,0 +1,131 @@
+:root {
+    --imperial-red: #ff3232;
+    --honeydew: #e6f5f7;
+    --powder-blue: #77d3f1;
+    --gold: rgb(255, 187, 86);
+    --prussian-blue: #0e2229;
+}
+
+body {
+    font-family: Sora, sans-serif;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: var(--prussian-blue);
+    color: var(--honeydew);
+    font-size: 90%;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 125%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: var(--gold);
+}
+
+.heading {
+    text-align: center;
+}
+
+.heading a:link, a:visited{
+    color: var(--honeydew);
+    text-decoration: none;
+}
+
+.heading a:hover {
+    color: var(--imperial-red);
+}
+
+.name {
+    font-size: 300%;
+    letter-spacing: 4px;
+    word-spacing: 10px;
+    font-family: Lora, serif;
+    color: var(--gold);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+    padding: 30px;
+}
+
+.column:not(:last-child) {
+    border-right:1px solid var(--honeydew);
+}
+
+@media screen and (max-width: 900px) {
+    .row {
+        flex-direction: column;
+      }
+    .column:not(:last-child) {
+        border-right: none;
+    }
+}
+@media screen and (min-width: 1200px) {
+    body {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .column {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+.s3 {
+    font-weight: 800;
+    font-size: 150%;
+    color: var(--powder-blue);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.s3:not(:first-child) {
+    padding-top: 25px;
+}
+
+.date {
+    font-style: italic;
+    color: var(--powder-blue);
+}
+
+.skills {
+    color: var(--imperial-red);
+    font-weight: 600;
+    font-size: 120%;
+}
+
+.skills p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.headshot {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heading-link {
+    text-decoration: none;
+    color: var(--gold);
+}
+
+.deployed {
+    color: var(--gold);
+}
+
+.deployed a:hover {
+    color: var(--imperial-red);
+}

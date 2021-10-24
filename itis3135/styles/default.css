@@ -270,3 +270,8 @@ figcaption {
 	margin-top: 0;
 	padding-top: 5px;
 }
+
+.margin {
+	margin-left: 20%;
+	margin-right: 20%;
+}
