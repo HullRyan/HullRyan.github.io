@@ -3,6 +3,8 @@ let headersList = {
   "User-Agent": "Thunder Client (https://www.thunderclient.io)",
 };
 
+var photoSets = [[],[]];
+
 function getPhotos() {
   $.getJSON(
     "https://api.flickr.com/services/rest?api_key=151dd3c0755a192df5e460420b7a8521&method=flickr.photosets.getPhotos&photoset_id=72157720050478418&format=json&jsoncallback=?",
@@ -22,15 +24,7 @@ function getPhotos() {
       //  https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
       $(".images").append(
-        '<img src="https://farm' +
-          farmId +
-          ".staticflickr.com/" +
-          serverId +
-          "/" +
-          id +
-          "_" +
-          secret +
-          '.jpg"/>'
+        `<img src="https://live.staticflickr.com/${serverId}/${id}_${secret}_b.jpg"/>`
       );
     });
   });
