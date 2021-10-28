@@ -1,9 +1,30 @@
-let headersList = {
-  Accept: "*/*",
-  "User-Agent": "Thunder Client (https://www.thunderclient.io)",
-};
+var photoSets;
+ 
+ /*fetch("https://api.flickr.com/services/rest?api_key=151dd3c0755a192df5e460420b7a8521&method=flickr.photosets.getList&user_id=192658515@N08", { 
+   method: "GET",
+   headers: headersList
+ }).then(function(response) {
+   return response.text();
+ }).then(function(data) {
+   console.log(data);
+ })*/
 
-var photoSets = [[],[]];
+var photoSets = [];
+
+function getPhotoSets() {
+  $.getJSON(
+    "https://api.flickr.com/services/rest?api_key=151dd3c0755a192df5e460420b7a8521&method=flickr.photosets.getList&user_id=192658515@N08&format=json&jsoncallback=?",
+    {}
+  ).done(function (data) {
+    console.log(data);
+    getPhotos();
+    $.each(data.photosets.photoset, function(i, photoset) {
+      photoSets.push(photoset);
+    });
+    console.log(photoSets);
+  });
+}
+
 
 function getPhotos() {
   $.getJSON(
@@ -24,7 +45,7 @@ function getPhotos() {
       //  https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
       $(".images").append(
-        `<img src="https://live.staticflickr.com/${serverId}/${id}_${secret}_b.jpg"/>`
+        `<img class="mat" src="https://live.staticflickr.com/${serverId}/${id}_${secret}_b.jpg"/>`
       );
     });
   });

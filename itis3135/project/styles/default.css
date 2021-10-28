@@ -1,0 +1,78 @@
+img.mat {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 10%;
+  background-color: #a67b5b;
+  background-image: url(cardboard.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 6px double #483c32;
+  box-shadow: 0 0 0 50px rgba(244, 240, 236, 0.4) inset,
+    0 0 0 11px rgb(180, 130, 90), 0 0 30px rgba(0, 0, 0, 0.8) inset;
+  outline: 2px solid #333;
+  outline-offset: 0px;
+}
+
+.main2 {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
+  background: url("../images/background.jpg") center;
+  background-size: cover;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  margin: 2%;
+}
+
+body,html {
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+    color:  [color-value];
+}
+
+body {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.box {
+  height: 100%;
+  display: block;
+}
+
+.box-box {
+  height: 100%;
+  padding: 40px;
+  font-size: 200%;
+}
+
+.box-image {
+  height: 100%;
+  background: url("../images/background.jpg") no-repeat center;
+  background-size: cover;
+}
+
+/*@media screen and (max-width: 900px) {
+    .row {
+        flex-direction: column;
+      }
+    .column:not(:last-child) {
+        border-right: none;
+    }
+}
+@media screen and (min-width: 1200px) {
+    body {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .column {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}*/
