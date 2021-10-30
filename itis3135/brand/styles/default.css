@@ -61,7 +61,13 @@ footer {
 
 footer a {
   padding-left: 25px;
+  color: var(--platinum);
 }
+
+footer a:hover {
+  color: var(--light-blue);
+}
+
 p {
   background-color: var(--dark-orange);
   color: var(--platinum);
