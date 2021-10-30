@@ -1,4 +1,4 @@
-img.mat {
+img .mat {
   box-sizing: border-box;
   width: 100%;
   height: auto;
@@ -27,18 +27,24 @@ img.mat {
   margin: 2%;
 }
 
-body,html {
-    margin: 0;
-    padding: 0;
+img {
+  background: transparent url("../images/loading_small.gif") center no-repeat;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 * {
-    box-sizing: border-box;
-    color:  [color-value];
+  box-sizing: border-box;
 }
 
 body {
   height: 100vh;
   min-height: 100vh;
+  transition: 1s;
+  font-family: "Noto Serif", serif;
 }
 
 .box {
@@ -48,8 +54,10 @@ body {
 
 .box-box {
   height: 100%;
-  padding: 40px;
-  font-size: 200%;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 120px;
+  font-size: 180%;
 }
 
 .box-image {
@@ -57,6 +65,113 @@ body {
   background: url("../images/background.jpg") no-repeat center;
   background-size: cover;
 }
+
+.navbar {
+  padding-top: 8px;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+}
+
+.username {
+  padding-top: 2px;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
+.home {
+  width: 120px;
+  padding-top: 4px;
+}
+
+.gallery-button {
+  margin-top: 4px;
+  width: 120px;
+  height: 35px;
+  background-color: black;
+  color: whitesmoke;
+  transition: 1s;
+  border: none;
+  outline: none;
+}
+
+.gallery-button:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
+}
+
+.gallery-button:active {
+  background-image: none;
+}
+
+.modal-button {
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 1em;
+}
+
+.modal-button i:hover {
+  filter: brightness(0.5);
+}
+
+.modal-button i:active {
+  filter: brightness(1);
+}
+
+.footer {
+  padding-top: 8px;
+  letter-spacing: 20px;
+  font-size: 80%;
+}
+
+.footer i:hover {
+  filter: brightness(0.5);
+}
+
+.footer i:active {
+  filter: brightness(1);
+}
+
+.no-js #loader {
+  display: none;
+}
+
+.js #loader {
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 0;
+}
+.se-pre-con {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("../images/loading_small.gif") center no-repeat whitesmoke;
+}
+
+.map {
+  width: 600px;
+  height: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: whitesmoke;
+}
+
+.map img {
+  width: 600px;
+}
+
+
 
 /*@media screen and (max-width: 900px) {
     .row {

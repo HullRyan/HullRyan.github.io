@@ -21,7 +21,14 @@ function getPhotoSets() {
     $.each(data.photosets.photoset, function(i, photoset) {
       photoSets.push(photoset);
     });
+    updateMap();
     console.log(photoSets);
+  });
+}
+
+function updateMap() {
+  photoSets.forEach(e => {
+    $(".map").append(`<img src="./images/map/four.jpg"/>`)
   });
 }
 
