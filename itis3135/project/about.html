@@ -9,13 +9,13 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Zen+Antique&display=swap"
       rel="stylesheet"
     />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./scripts/w3.js"></script>
     <script
       src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
       data-auto-replace-svg="nest"
     ></script>
-    <script src="./scripts/social.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./scripts/w3.js"></script>
+    <script src="./scripts/about.js"></script>
     <title>Gallery Index</title>
   </head>
 
@@ -24,15 +24,13 @@
       <div class="box-box">
         <div w3-include-html="components/header.html"></div>
         <div class="box-wrapper">
-            <div class="about">
-                Check Me Out on my other sites
-                <div class="socials">
-                    
-                </div>
-            </div>
+            <div class="about"><h3>About Me</h3></div>
+          <img id="profile" class="profilePhoto mat" />
+          <div class="about" id="about"></div>
         </div>
         <div w3-include-html="components/footer.html"></div>
       </div>
     </div>
+    <div class="se-pre-con"></div>
   </body>
 </html>
