@@ -68,7 +68,7 @@ function pushToArrays(ps, i) {
     {}
   ).done(function (data) {
     console.log(data);
-    sizes = data.sizes;
+    let sizes = data.sizes;
     console.log(sizes.size);
     $.getJSON(
       `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.getInfo&photo_id=${id}&format=json&jsoncallback=?`,

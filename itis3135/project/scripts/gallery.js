@@ -58,13 +58,13 @@ function getPhotos(id, i) {
       $.getJSON(
         `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.getSizes&photo_id=${id}&format=json&jsoncallback=?`,
         {}
-      ).done(function (data) {
-        sizes = data.sizes;
+      ).then(function (data) {
+        let sizes = data.sizes;
         console.log(sizes.size);
         $.getJSON(
           `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.getInfo&photo_id=${id}&format=json&jsoncallback=?`,
           {}
-        ).done(function (data) {
+        ).then(function (data) {
           desc = data.photo;
           console.log(desc);
           dynamicE.push({
@@ -79,6 +79,7 @@ function getPhotos(id, i) {
         });
       });
     });
+    return(dynamicE);
   });
   dynamic(dynamicE, i);
 }
