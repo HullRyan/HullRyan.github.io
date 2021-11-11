@@ -68,8 +68,8 @@ function getPhotos(id, i) {
           desc = data.photo;
           console.log(desc);
           dynamicE.push({
-            src: `${sizes.size[12].source}`,
-            thumb: `${sizes.size[12].source}`,
+            src: `${sizes.size[sizes.size.length - 2].source}`,
+            thumb: `${sizes.size[sizes.size.length - 4].source}`,
             subHtml: `<div class="lightGallery-captions about">
                   <h4>Photo by <a href="https://flickr.com/people/${desc.owner.nsid}">${desc.owner.realname}</a></h4>
                   <p>Published on ${desc.dates.taken}</p></br>

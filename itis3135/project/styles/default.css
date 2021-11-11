@@ -1,5 +1,5 @@
 img {
-  background: transparent url("../images/loading_small.gif") center no-repeat;
+  background-image: transparent url("../images/loading_small.gif") center no-repeat;
 }
 
 body,
@@ -39,14 +39,13 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  overflow-y: scroll;
 }
 
 .box-image {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  background: gray;
+  
   background-size: cover;
   position: relative;
   z-index: -2;

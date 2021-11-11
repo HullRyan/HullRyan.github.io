@@ -77,8 +77,8 @@ function pushToArrays(ps, i) {
       desc = data.photo;
       console.log(desc);
       dynamicArrays[i].push({
-        src: `${sizes.size[9].source}`,
-        thumb: `${sizes.size[3].source}`,
+        src: `${sizes.size[sizes.size.length - 1].source}`,
+        thumb: `${sizes.size[sizes.size.length - 4].source}`,
         subHtml: `<div class="lightGallery-captions about">
               <h4>Photo by <a href="https://flickr.com/people/${desc.owner.nsid}">${desc.owner.realname}</a></h4>
               <p>Published on ${desc.dates.taken}</p></br>

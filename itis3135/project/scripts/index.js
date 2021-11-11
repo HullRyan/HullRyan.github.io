@@ -3,11 +3,16 @@ var api_key = "151dd3c0755a192df5e460420b7a8521";
 
 $(window).on("load", function () {
   // Animate loader off screen
+
+  var background = document.getElementById("box-image");
+  background.onload = function () {
+    setColor();
+  };
   w3.includeHTML(getName);
   $(".se-pre-con").fadeOut("slow");
 });
 
-async function getName() {
+function getName() {
   $.getJSON(
     `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.people.getInfo&user_id=${user_id}&format=json&jsoncallback=?`,
     {}
@@ -16,25 +21,33 @@ async function getName() {
     console.log(person);
     $(".username").text(person.realname._content);
   });
-  await getBackground();
+  getBackground();
 }
 
-async function getBackground() {
-$.getJSON(
-  `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.search&user_id=${user_id}&tags=background&format=json&jsoncallback=?`,
-  {}
-).then(function (data) {
-  data = data.photos.photo[Math.floor(Math.random()*data.photos.photo.length)];
-  console.log(data)
-  backgroundSource = `https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`;
-  //document.getElementById("profile").src = `<img class="mat" src="${profilePictureSource}"/>`;
-  $(".box-image").attr("src", backgroundSource);
-});
+function getBackground() {
+  $.getJSON(
+    `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.search&user_id=${user_id}&tags=background&format=json&jsoncallback=?`,
+    {}
+  ).then(function (data) {
+    var photo =
+      data.photos.photo[Math.floor(Math.random() * data.photos.photo.length)];
+    $.getJSON(
+      `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.getSizes&photo_id=${photo.id}&format=json&jsoncallback=?`,
+      {}
+    ).then(function (data) {
+      let sizes = data.sizes;
+      console.log(sizes);
+      backgroundSource = sizes.size[sizes.size.length - 2].source;
+      var background = document.getElementById("box-image");
+      background.src = backgroundSource;
+    });
+  });
 }
 
-$("img").bind('load', function() {
+$("img").bind("load", function () {
+  console.log("image load");
   setColor();
-})
+});
 
 async function setColor() {
   var img = document.querySelector("img");
