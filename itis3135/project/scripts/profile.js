@@ -2,9 +2,11 @@ var user_id = "192658515@N08";
 var api_key = "151dd3c0755a192df5e460420b7a8521";
 var galleries = [];
 var collections = [];
+var loaded = true;
 
 $(window).on("load", function () {
-  getName();
+  w3.includeHTML(getName);
+  checkLoaded();
   getSocials();
   getProfile();
   getPhotoSets();
@@ -12,21 +14,44 @@ $(window).on("load", function () {
   getBackground();
 });
 
-function getName() {
-  $.getJSON(
-    `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.people.getInfo&user_id=${user_id}&format=json&jsoncallback=?`,
-    {}
-  ).done(function (data) {
-    let name = data.person.realname._content;
-    $(".username").text(name);
-    if (
-      localStorage.getItem("name") === null ||
-      name != localStorage.getItem("name")
-    ) {
-      localStorage.clear();
-      localStorage.setItem("name", name);
+function checkLoaded() {
+  if (localStorage.length == 7) {
+    $(".se-pre-con").fadeOut("slow");
+  } else {
+    loaded = false;
+  }
+}
+
+function checkReload() {
+  if (loaded == false) {
+    if (localStorage.length == 7) {
+      loaded = true;
+      location.reload();
     }
-  });
+  }
+}
+
+function getName() {
+  try {
+    $(".username").text(localStorage.getItem("name"));
+  } finally {
+    $.getJSON(
+      `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.people.getInfo&user_id=${user_id}&format=json&jsoncallback=?`,
+      {}
+    ).done(function (data) {
+      let name = data.person.realname._content;
+      $(".username").text(name);
+      if (
+        localStorage.getItem("name") != null &&
+        name != localStorage.getItem("name")
+      ) {
+        localStorage.clear();
+        location.reload();
+      }
+      localStorage.setItem("name", name);
+      checkReload();
+    });
+  }
 }
 
 function getProfile() {
@@ -49,7 +74,21 @@ function getProfile() {
         localStorage.setItem("profilePicture", profilePhotoSource);
       });
     }
+    checkReload();
   });
+}
+
+function getSocials() {
+  let socials = [];
+  if (JSON.parse(localStorage.getItem("socials")) === null) {
+    $.getJSON(
+      `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.profile.getProfile&user_id=${user_id}&format=json&jsoncallback=?`,
+      {}
+    ).done(function (data) {
+      localStorage.setItem("socials", JSON.stringify(data.profile));
+    });
+  }
+  checkReload();
 }
 
 function getPhotoSets() {
@@ -70,26 +109,15 @@ function getPhotoSets() {
         getPhotos(
           data.photosets.photoset[i].id,
           data.photosets.photoset.length,
-          galleryCard
+          galleryCard,
+          i
         );
       });
     }
   });
 }
 
-function getSocials() {
-  let socials = [];
-  if (JSON.parse(localStorage.getItem("socials")) === null) {
-    $.getJSON(
-      `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.profile.getProfile&user_id=${user_id}&format=json&jsoncallback=?`,
-      {}
-    ).done(function (data) {
-      localStorage.setItem("socials", JSON.stringify(data.profile));
-    });
-  }
-}
-
-function getPhotos(id, photosets, galleryCard) {
+function getPhotos(id, photosets, galleryCard, galleryNumber) {
   let galleryPhotos = [];
   let dynamicE = [];
   console.log("In getphotos");
@@ -126,11 +154,12 @@ function getPhotos(id, photosets, galleryCard) {
             </div>`,
           });
           if (dynamicE.length == length) {
-            galleries.unshift([galleryCard, dynamicE]);
+            galleries.unshift([galleryCard, dynamicE, galleryNumber]);
           }
           if (galleries.length == photosets) {
             localStorage.setItem("galleries", JSON.stringify(galleries));
             console.log(galleries);
+            checkReload();
           }
         });
       });
@@ -157,14 +186,15 @@ function getCollections() {
         getCollectionPhotos(
           data.galleries.gallery[i].id,
           data.galleries.gallery.length,
-          galleryCard
+          galleryCard,
+          i
         );
       });
     }
   });
 }
 
-function getCollectionPhotos(id, photosets, galleryCard) {
+function getCollectionPhotos(id, photosets, galleryCard, galleryNumber) {
   let collectionPhotos = [];
   let dynamicE = [];
   console.log("In getCollectionPhotos");
@@ -203,11 +233,12 @@ function getCollectionPhotos(id, photosets, galleryCard) {
           console.log(length);
           console.log(dynamicE.length);
           if (dynamicE.length == length) {
-            collections.unshift([galleryCard, dynamicE]);
+            collections.unshift([galleryCard, dynamicE, galleryNumber]);
           }
           if (collections.length == photosets) {
             localStorage.setItem("collections", JSON.stringify(collections));
             console.log(collections);
+            checkReload();
           }
         });
       });
@@ -238,7 +269,7 @@ function getBackground() {
           if (backgrounds.length == length) {
             console.log("Pushing backgrounds");
             localStorage.setItem("backgrounds", JSON.stringify(backgrounds));
-            location.reload();
+            checkReload();
           }
         });
       });
