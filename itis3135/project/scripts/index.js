@@ -8,40 +8,35 @@ $(window).on("load", function () {
   background.onload = function () {
     setColor();
   };
-  w3.includeHTML(getName);
+  w3.includeHTML(checkName);
   $(".se-pre-con").fadeOut("slow");
 });
 
-function getName() {
-  $.getJSON(
-    `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.people.getInfo&user_id=${user_id}&format=json&jsoncallback=?`,
-    {}
-  ).done(function (data) {
-    person = data.person;
-    console.log(person);
-    $(".username").text(person.realname._content);
-  });
-  getBackground();
+function checkName() {
+  if (localStorage.getItem("name") === null) {
+    $.getJSON(
+      `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.people.getInfo&user_id=${user_id}&format=json&jsoncallback=?`,
+      {}
+    ).done(function (data) {
+      let name = data.person.realname._content;
+      localStorage.setItem("name", name);
+      $(".username").text(name);
+    });
+  } else {
+    let name = localStorage.getItem("name");
+    $(".username").text(name);
+  }
+  checkBackground();
 }
 
-function getBackground() {
-  $.getJSON(
-    `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.search&user_id=${user_id}&tags=background&format=json&jsoncallback=?`,
-    {}
-  ).then(function (data) {
-    var photo =
-      data.photos.photo[Math.floor(Math.random() * data.photos.photo.length)];
-    $.getJSON(
-      `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.getSizes&photo_id=${photo.id}&format=json&jsoncallback=?`,
-      {}
-    ).then(function (data) {
-      let sizes = data.sizes;
-      console.log(sizes);
-      backgroundSource = sizes.size[sizes.size.length - 2].source;
-      var background = document.getElementById("box-image");
-      background.src = backgroundSource;
-    });
-  });
+function checkBackground() {
+  if (localStorage.getItem("backgrounds") === null) {
+    getBackground();
+  }
+  let backgrounds = JSON.parse(localStorage.getItem("backgrounds"));
+  console.log(backgrounds);
+  var photo = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  document.getElementById("box-image").src = photo;
 }
 
 $("img").bind("load", function () {
@@ -65,12 +60,4 @@ async function setColor() {
     if (swatches.hasOwnProperty(swatch) && swatches[swatch])
       console.log(swatch, swatches[swatch].getHex());
   return;
-}
-
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
 }

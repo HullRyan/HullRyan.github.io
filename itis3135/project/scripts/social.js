@@ -5,37 +5,26 @@ var person;
 var profilePictureSource;
 
 $(window).on("load", function () {
-  w3.includeHTML(getProfile);
+  w3.includeHTML(checkSocials);
   $(".se-pre-con").fadeOut("slow");
 });
 
-function getName() {
-  $.getJSON(
-    `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.people.getInfo&user_id=${user_id}&format=json&jsoncallback=?`,
-    {}
-  ).done(function (data) {
-    person = data.person;
-    console.log(person);
-    $(".username").text(person.realname._content);
-  });
+function checkName() {
+  if(localStorage.getItem("name") === null) {
+    getName();
+    $(".username").text(localStorage.getItem("name"));
+  } else {
+    let name = localStorage.getItem("name");
+    $(".username").text(name);
+  }
 }
 
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-
-function getProfile() {
-  getName();
-  $.getJSON(
-    `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.profile.getProfile&user_id=${user_id}&format=json&jsoncallback=?`,
-    {}
-  ).done(function (data) {
-    console.log(data);
-    let profile = data.profile;
+function checkSocials() {
+  checkName();
+  if(localStorage.getItem("socials") === null) {
+    getSocials();
+  }
+    let profile = JSON.parse(localStorage.getItem("socials"));
     console.log(profile);
     let socials = document.getElementsByClassName("socials");
     if (profile.facebook != "") {
@@ -74,5 +63,12 @@ function getProfile() {
         `<a class="fas fa-home fa-lg" href="${profile.website}"></a>`
       );
     }
-  });
+}
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
 }
