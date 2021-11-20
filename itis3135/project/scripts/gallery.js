@@ -2,6 +2,7 @@ $(window).on("load", function () {
   checkPhotoSets();
 });
 
+//Checks and retrieves users galleries from local storage
 function checkPhotoSets() {
   if (localStorage.getItem("galleries") === null) {
     getPhotoSets();
@@ -16,6 +17,7 @@ function checkPhotoSets() {
   });
 }
 
+//Creates light galleries dynamically
 function createLightGallery(photos, i) {
   console.log(photos);
   console.log("in dynamic");

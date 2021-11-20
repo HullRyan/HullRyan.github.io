@@ -1,3 +1,7 @@
+:root {
+  --dynamic-color: black;
+}
+
 body,
 html {
   margin: 0;
@@ -5,12 +9,13 @@ html {
 }
 * {
   box-sizing: border-box;
-  transition: 1s;
 }
 
 body {
+  color: var(--dynamic-color);
   height: 100vh;
   min-height: 100vh;
+  transition: 2s;
   font-family: "Noto Serif", serif;
 }
 
@@ -41,7 +46,7 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  
+
   background-size: cover;
   position: relative;
   z-index: -2;
@@ -67,21 +72,25 @@ body {
 
 .gallery-button {
   margin-top: 4px;
-  width: 120px;
-  height: 35px;
-  background-color: black;
-  color: whitesmoke;
-  transition: 1s;
-  border: none;
-  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: var(--dynamic-color);
+  display: inline-block;
+  text-align: center;
+  color: white;
+  text-decoration: none;
 }
 
 .gallery-button:hover {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
+  filter: brightness(0.5);
 }
 
 .gallery-button:active {
-  background-image: none;
+  filter: brightness(0.5);
+}
+
+.right-header {
+  width: 120px;
 }
 
 .modal-button {
@@ -101,12 +110,12 @@ body {
 }
 
 .modal-button i:active {
-  filter: brightness(1);
+  filter: brightness(0.5);
 }
 
 .footer {
   padding-top: 8px;
-  letter-spacing: 20px;
+  display: inline-block;
   font-size: 80%;
 }
 
@@ -128,31 +137,18 @@ body {
   left: 100px;
   top: 0;
 }
-.se-pre-con {
+
+.loading {
   position: fixed;
   left: 0px;
   top: 0px;
   width: 100%;
   height: 100%;
-  z-index: 9999;
   background: url("../images/loading_small.gif") center no-repeat whitesmoke;
 }
 
-.map {
-  width: 600px;
-  height: 600px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: whitesmoke;
-}
-
-.map img {
-  width: 600px;
-}
-
 .sidenav {
+  transition: 0.5s;
   height: 100%;
   width: 0;
   position: fixed;
@@ -224,7 +220,9 @@ body {
   justify-content: space-between;
 }
 
-.socials a, a:focus, a:active {
+.socials a,
+a:focus,
+a:active {
   text-decoration: none;
   color: inherit;
 }
@@ -237,7 +235,7 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   margin: 45px;
   max-width: 350px;
 }
@@ -250,9 +248,10 @@ body {
   padding: 2px 16px;
 }
 
-.gallery-info h3, p {
+.gallery-info h3,
+p {
   margin-bottom: 5px;
-  margin-top: 5px;  
+  margin-top: 5px;
 }
 
 .gallery img {
@@ -261,8 +260,12 @@ body {
 }
 
 .lg-backdrop {
-  
-  filter: opacity(0.9);
+  background-color: black !important;
+  filter: opacity(0.8);
+}
+
+.lg-outer {
+  transition: 1s;
 }
 
 @media screen and (max-height: 450px) {

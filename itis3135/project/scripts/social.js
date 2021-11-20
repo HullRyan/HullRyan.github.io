@@ -2,6 +2,7 @@ $(window).on("load", function () {
   checkSocials();
 });
 
+//Checks through all possible social media links on Flickr and dynamically makes buttons for each
 function checkSocials() {
   if (localStorage.getItem("socials") === null) {
     getSocials();
