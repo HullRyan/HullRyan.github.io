@@ -2,11 +2,11 @@
   function s(o, u) {
     if (!n[o]) {
       if (!t[o]) {
-        var a = typeof require == 'function' && require;
+        var a = typeof require == "function" && require;
         if (!u && a) return a(o, !0);
         if (i) return i(o, !0);
         var f = new Error("Cannot find module '" + o + "'");
-        throw ((f.code = 'MODULE_NOT_FOUND'), f);
+        throw ((f.code = "MODULE_NOT_FOUND"), f);
       }
       var l = (n[o] = { exports: {} });
       t[o][0].call(
@@ -25,7 +25,7 @@
     }
     return n[o].exports;
   }
-  var i = typeof require == 'function' && require;
+  var i = typeof require == "function" && require;
   for (var o = 0; o < r.length; o++) s(r[o]);
   return s;
 })(
@@ -446,8 +446,8 @@ var newPixels = myPixels.map(function(p) {
             });
 
             function doCut(color) {
-              var dim1 = color + '1',
-                dim2 = color + '2',
+              var dim1 = color + "1",
+                dim2 = color + "2",
                 left,
                 right,
                 vbox1,
@@ -478,10 +478,10 @@ var newPixels = myPixels.map(function(p) {
             }
             // determine the cut planes
             return maxw == rw
-              ? doCut('r')
+              ? doCut("r")
               : maxw == gw
-              ? doCut('g')
-              : doCut('b');
+              ? doCut("g")
+              : doCut("b");
           }
 
           function quantize(pixels, maxcolors) {
@@ -646,7 +646,7 @@ var newPixels = myPixels.map(function(p) {
 
             Swatch.prototype.getHex = function () {
               return (
-                '#' +
+                "#" +
                 (
                   (1 << 24) +
                   (this.rgb[0] << 16) +
@@ -661,18 +661,18 @@ var newPixels = myPixels.map(function(p) {
             Swatch.prototype.getTitleTextColor = function () {
               this._ensureTextColors();
               if (this.yiq < 200) {
-                return '#fff';
+                return "#fff";
               } else {
-                return '#000';
+                return "#000";
               }
             };
 
             Swatch.prototype.getBodyTextColor = function () {
               this._ensureTextColors();
               if (this.yiq < 150) {
-                return '#fff';
+                return "#fff";
               } else {
-                return '#000';
+                return "#000";
               }
             };
 
@@ -688,7 +688,7 @@ var newPixels = myPixels.map(function(p) {
           })();
 
           window.Vibrant = Vibrant = (function () {
-            Vibrant.prototype.quantize = require('quantize');
+            Vibrant.prototype.quantize = require("quantize");
 
             Vibrant.prototype._swatches = [];
 
@@ -748,10 +748,10 @@ var newPixels = myPixels.map(function(p) {
                 pixelCount,
                 pixels,
                 r;
-              if (typeof colorCount === 'undefined') {
+              if (typeof colorCount === "undefined") {
                 colorCount = 64;
               }
-              if (typeof quality === 'undefined') {
+              if (typeof quality === "undefined") {
                 quality = 5;
               }
               image = new CanvasImage(sourceImage);
@@ -1054,8 +1054,8 @@ var newPixels = myPixels.map(function(p) {
 
           window.CanvasImage = CanvasImage = (function () {
             function CanvasImage(image) {
-              this.canvas = document.createElement('canvas');
-              this.context = this.canvas.getContext('2d');
+              this.canvas = document.createElement("canvas");
+              this.context = this.canvas.getContext("2d");
               document.body.appendChild(this.canvas);
               this.width = this.canvas.width = image.width;
               this.height = this.canvas.height = image.height;

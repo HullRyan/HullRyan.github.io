@@ -10,7 +10,7 @@ function checkPhotoSets() {
   let collections = JSON.parse(localStorage.getItem("collections"));
   console.log(collections);
   $.each(collections, function (i, collection) {
-    $(".gallery-items").append(`${collection[0]}`);
+    $(".grid").append(`${collection[0]}`);
     createLightGallery(collection[1], collection[2]);
   });
 }

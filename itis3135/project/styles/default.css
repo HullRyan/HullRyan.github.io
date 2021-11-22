@@ -26,6 +26,8 @@ body {
 
 .box-box {
   height: 100%;
+  max-height: 100%;
+  max-width: 100%;
   padding-left: 60px;
   padding-right: 60px;
   padding-bottom: 120px;
@@ -37,9 +39,7 @@ body {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) inset;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .box-image {
@@ -214,6 +214,10 @@ body {
   padding-right: 30px;
 }
 
+.about:first-child {
+  margin-top: 30px;
+}
+
 .socials {
   padding-top: 25px;
   display: flex;
@@ -237,11 +241,8 @@ a:active {
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   margin: 45px;
-  max-width: 350px;
-}
-
-.gallery-items {
-  display: flex;
+  max-width: 250px;
+  max-height: 230px;
 }
 
 .gallery-info {
@@ -275,4 +276,13 @@ p {
   .sidenav a {
     font-size: 18px;
   }
+}
+
+.grid {
+  max-height: inherit;
+  max-width: inherit;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

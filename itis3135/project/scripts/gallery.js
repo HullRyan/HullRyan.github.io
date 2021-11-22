@@ -3,7 +3,7 @@ $(window).on("load", function () {
 });
 
 //Checks and retrieves users galleries from local storage
-function checkPhotoSets() {
+function checkPhotoSets(grid) {
   if (localStorage.getItem("galleries") === null) {
     getPhotoSets();
   }
@@ -11,14 +11,14 @@ function checkPhotoSets() {
   console.log(galleries);
   $.each(galleries, function (i, gallery) {
     console.log(gallery[0]);
-    $(".gallery-items").append(`${gallery[0]}`);
+    $(".grid").append(`${gallery[0]}`);
     console.log(gallery[2]);
-    createLightGallery(gallery[1], gallery[2]);
+    createLightGallery(gallery[1], gallery[2], galleries);
   });
 }
 
 //Creates light galleries dynamically
-function createLightGallery(photos, i) {
+function createLightGallery(photos, i, galleries) {
   console.log(photos);
   console.log("in dynamic");
   const $dynamicGallery = document.getElementById(`gallery${i}`);
@@ -30,4 +30,13 @@ function createLightGallery(photos, i) {
   document.getElementById(`gallery${i}`).addEventListener("click", () => {
     dynamicGallery.openGallery(i);
   });
+  console.log(document.getElementById("gallery-container").childElementCount);
+  console.log(galleries.length);
+  if (
+    document.getElementById("gallery-container").childElementCount ==
+    galleries.length
+  ) {
+    console.log("refreshing items");
+    grid.refreshItems().layout();
+  }
 }

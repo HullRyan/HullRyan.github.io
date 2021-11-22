@@ -74,7 +74,7 @@ These are referred to as _galleries_ on the web app.
 - After making your albums, you can view them by clicking on the _Album_ tab
   - Here you can change the _Cover Photo_, to pick which image shows as the cover for the gallery on the web app
 
-### Now on to creating some _Gallleries!_
+### Now on to creating some _Galleries!_
 
 These are under the _photos I like_ section on the web app.
 
