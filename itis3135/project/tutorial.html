@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="styles/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Zen+Antique&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      data-auto-replace-svg="nest"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./scripts/w3.js"></script>
+    <script src="./scripts/jquery-ui.min.js"></script>
+    <script src="./scripts/profile.js"></script>
+    <script src="./scripts/tutorial.js"></script>
+    <title>Gallery Index</title>
+  </head>
+
+  <body>
+    <div class="box">
+      <div class="box-box">
+        <div data-include="components/header.html"></div>
+        <div class="box-wrapper">
+          <div class="tutorial">
+            <div id="accordion">
+              <h3>Get started</h3>
+              <div>
+                <p>
+                  Hey! This web app gets all its data from using the
+                  <strong>Flickr API.</strong> If you want to learn how to use
+                  this template and what you need in your Flickr account, please
+                  continue reading.
+                </p>
+              </br>
+                <p>
+                  Created by Ryan Hull for ITIS 3135 Web App Design and
+                  Development UNC at Charlotte Fall 2021
+                </p>
+              </br>
+                <p>
+                  Flickr will hold all of your user information, pictures, links,
+                  and liked photos. I reccomend
+                  <a href="https://www.cleverbox.co.uk/blog/top-tips/set-flickr-account/">
+                    creating an account
+                  </a>
+                  and looking around before continuing.
+                </p>
+              </div>
+              <h3>Make the most out of your account</h3>
+              <div>
+              <p>
+                Below is a list of all aspects of Flickr that the web app makes
+                use of:
+              </p>
+              <ul>
+                <li>
+                  Profile
+                  <ul>
+                    <li>Username</li>
+                    <li>Real name</li>
+                    <li>Description</li>
+                    <li>
+                      Outstide Links (at least one)
+                      <ul>
+                        <li>Website</li>
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>Pinterest</li>
+                        <li>Twitter</li>
+                        <li>Tumblr</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Albums (Your photos)
+                  <ul>
+                    <li>Album name</li>
+                    <li>Album description</li>
+                    <li>Album cover</li>
+                  </ul>
+                </li>
+                <li>
+                  Galleries (Others photos)
+                  <ul>
+                    <li>Gallery name</li>
+                    <li>Gallery description</li>
+                    <li>Gallery cover</li>
+                  </ul>
+                </li>
+                <li>
+                  Photo
+                  <ul>
+                    <li>Title</li>
+                    <li>Description</li>
+                    <li>Background Tag (as many as you like)</li>
+                  </ul>
+                </li>
+              </ul>
+              <p>
+                Please note that the above are requirements for the page, and
+                things will be missing from your pages if left absent. At least
+                one Album and one Collection is reccomended to make first. A
+                photo with the tag &quot;background&quot; is necessary to have
+                the main page&#39;s background, the page will pick one randomly
+                on each load.
+              </p>
+              </div>
+              <h3>How to change Flickr information</h3>
+              <div>
+                <ul>
+                  <li>
+                    You can access the settings by first clicking <em>You</em>,
+                    then <em>About</em> on your Flickr homescreen once signed in.
+                  </li>
+                  <li>
+                    Here you can change your:
+                    <ul>
+                      <li><em>Real Name</em></li>
+                      <li><em>Profile Description</em></li>
+                      <li><em>Outside Links/ Social Medias</em></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <h3>
+                After setting up your information, the next step is
+                <em>Photos!</em>
+              </h3>
+              <div>
+              <ul>
+                <li>
+                  You can click the cloud icon on the top right of your page to
+                  upload photos
+                  <ul>
+                    <li>
+                      Keep in mind:
+                      <ul>
+                        <li>
+                          Galleries tend to look best with themes or aesthetics
+                          in mind
+                        </li>
+                        <li>
+                          While you can put as little or many photos as you
+                          like, 5-10 is reccomended per album
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Choose your page backgrounds
+                  <ul>
+                    <li>
+                      In the <em>Photostream</em> section, click any photo you
+                      think would look good large
+                    </li>
+                    <li>
+                      Scroll down until you find the <em>Tags</em> and add a tag
+                      with the text: <strong>background</strong>
+                    </li>
+                    <li>
+                      That photo will now be the pool of backgrounds that the
+                      web app will randomly select on each load
+                      <ul>
+                        <li>
+                          If you would like only one background, only add a
+                          <strong>background</strong> tag to one photo
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+              <h3>
+                Now lets create some <em>Albums!</em>
+              </h3>
+              <div>
+              <p>These are referred to as <em>galleries</em> on the web app.</p>
+              <ul>
+                <li>
+                  Heading back to your <em>Photostream</em>, find a photo you
+                  want in an album and hover over the image
+                </li>
+                <li>
+                  An <em>Add to: Album</em> pop up should appear, where you can
+                  create a new album or add to an existing one
+                  <ul>
+                    <li>
+                      Make sure you add a title and a description for your album
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  After making your albums, you can view them by clicking on the
+                  <em>Album</em> tab
+                  <ul>
+                    <li>
+                      Here you can change the <em>Cover Photo</em>, to pick
+                      which image shows as the cover for the gallery on the web
+                      app
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+              <h3>
+                Now on to creating some <em>Galleries!</em>
+              </h3>
+              <div>
+              <p>
+                These are under the <em>photos I like</em> section on the web
+                app.
+              </p>
+              <ul>
+                <li>
+                  For this part, wander around Flickr until you find photos that
+                  you like that aren&#39;t yours
+                </li>
+                <li>
+                  Once you find some, repeat the process from making an
+                  <em>album</em>, by clicking the square and creating or adding
+                  to a gallery
+                </li>
+                <li>
+                  These will hold photos you like from other people, but you
+                  can&#39;t mix photos that are yours or others in your
+                  collections
+                </li>
+              </ul>
+            </div>
+              <h3>Plugins used</h3>
+              <div>
+              <ul>
+                <li>
+                  W3.js
+                  <ul>
+                    <li>For including html components in pages</li>
+                  </ul>
+                </li>
+                <li>
+                  Font Awesome
+                  <ul>
+                    <li>For icons</li>
+                  </ul>
+                </li>
+                <li>
+                  Vibrant.js
+                  <ul>
+                    <li>For dynacally extracting colors from images</li>
+                  </ul>
+                </li>
+                <li>
+                  lightGallery.js
+                  <ul>
+                    <li>For image gallery</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+              <h3>How it works</h3>
+              <div>
+              <p>
+                To use this template with your own Flickr account and
+                information, you will need to find your user id and to get an
+                API key
+              </p>
+              <ul>
+                <li>
+                  To find this, go to your <em>Photostream</em>, once there, it
+                  will be the entire text in the url of the page between the
+                  last two slashes
+                  <ul>
+                    <li>
+                      Example from my account: flickr.<span
+                      ></span>com/photos/192658515@N08/
+                    </li>
+                    <li>My user id would be <strong>192658515@N08</strong></li>
+                  </ul>
+                </li>
+                <li>
+                  Next is to get your very own Flickr API key from
+                  <a
+                    href="https://www.flickr.com/services/apps/create/noncommercial/?"
+                    >here</a
+                  >
+                </li>
+              </ul>
+              <p>
+                Now just replacing the current API key and user id varibles in
+                the profile.js in the scripts folder is all that is needed to
+                make your information shine on your web app
+              </p>
+            </div>
+            <h3>How to hide this page</h3>
+              <div>
+              <p>
+                To hide this page for deployment, simply remove it from the <em>header</em> component, 
+                it is labled as "tutorial" in an &lta&gt tag.
+              </p>
+              <br>
+              <p>
+                All that's left is to enjoy!
+              </p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div data-include="components/footer.html"></div>
+      </div>
+    </div>
+    <div class="loading"></div>
+  </body>
+</html>
