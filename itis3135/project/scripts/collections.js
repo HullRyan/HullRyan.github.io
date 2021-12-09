@@ -4,9 +4,6 @@ $(window).on("load", function () {
 
 //Checks and retrieves collection galleries from local storage
 function checkPhotoSets() {
-  if (localStorage.getItem("collections") === null) {
-    getCollections();
-  }
   let collections = JSON.parse(localStorage.getItem("collections"));
   console.log(collections);
   $.each(collections, function (i, collection) {

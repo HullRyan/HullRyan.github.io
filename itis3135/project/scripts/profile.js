@@ -1,5 +1,8 @@
 //User ID to dsplay from Flickr
-var user_id = "192658515@N08";
+
+//var user_id = "192658515@N08";
+var user_id = "194563521@N02";
+
 //API key
 var api_key = "151dd3c0755a192df5e460420b7a8521";
 
@@ -133,7 +136,7 @@ function getPhotoSets() {
     ) {
       $.each(data.photosets.photoset, function (i, photoset) {
         let galleryCard = `<div id="gallery${i}"class="gallery"><div class="gallery-info"><h3><b>${photoset.title._content}</h3></b><p>${photoset.description._content}</p></div><img
-            src="https://live.staticflickr.com/${photoset.server}/${photoset.primary}_${photoset.secret}.jpg"
+            class="cardImage" src="https://live.staticflickr.com/${photoset.server}/${photoset.primary}_${photoset.secret}.jpg"
             /></div>`;
         getPhotos(
           data.photosets.photoset[i].id,
@@ -149,14 +152,13 @@ function getPhotoSets() {
 //Function that gets image sources for each gallery image from localstorage or API,
 //then saves to localstorage
 function getPhotos(id, photosets, galleryCard, galleryNumber) {
-  let galleryPhotos = [];
-  let dynamicE = [];
   console.log("In getphotos");
   $.getJSON(
     `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photosets.getPhotos&photoset_id=${id}&format=json&jsoncallback=?`,
     {}
-  ).then(function (data) {
+  ).done(function (data) {
     let length = data.photoset.photo.length;
+    let dynamicE = [];
 
     $.each(data.photoset.photo, function (i, photo) {
       let farmId = photo.farm;
@@ -167,14 +169,13 @@ function getPhotos(id, photosets, galleryCard, galleryNumber) {
       $.getJSON(
         `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.getSizes&photo_id=${id}&format=json&jsoncallback=?`,
         {}
-      ).then(function (data) {
+      ).done(function (data) {
         let sizes = data.sizes.size;
         $.getJSON(
           `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.getInfo&photo_id=${id}&format=json&jsoncallback=?`,
           {}
-        ).then(function (data) {
-          desc = data.photo;
-          console.log(desc);
+        ).done(function (data) {
+          let desc = data.photo;
           dynamicE.push({
             src: `${sizes[sizes.length - 2].source}`,
             thumb: `${sizes[sizes.length - 4].source}`,
@@ -204,7 +205,6 @@ function getCollections() {
     `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.galleries.getList&user_id=${user_id}&format=json&jsoncallback=?`,
     {}
   ).done(function (data) {
-    console.log(data);
     if (
       localStorage.getItem("collections") === null ||
       data.galleries.gallery.length !=
@@ -212,9 +212,8 @@ function getCollections() {
     ) {
       $.each(data.galleries.gallery, function (i, gallery) {
         let galleryCard = `<div id="collection${i}"class="gallery"><div class="gallery-info"><h3><b>${gallery.title._content}</h3></b><p>${gallery.description._content}</p></div><img id="gallery${i}"
-          src="https://live.staticflickr.com/${gallery.primary_photo_server}/${gallery.primary_photo_id}_${gallery.primary_photo_secret}.jpg"
+        class="cardImage" src="https://live.staticflickr.com/${gallery.primary_photo_server}/${gallery.primary_photo_id}_${gallery.primary_photo_secret}.jpg"
         /></div>`;
-        console.log(data.galleries.gallery.length);
         getCollectionPhotos(
           data.galleries.gallery[i].id,
           data.galleries.gallery.length,
@@ -231,12 +230,10 @@ function getCollections() {
 function getCollectionPhotos(id, photosets, galleryCard, galleryNumber) {
   let collectionPhotos = [];
   let dynamicE = [];
-  console.log("In getCollectionPhotos");
   $.getJSON(
     `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.galleries.getPhotos&gallery_id=${id}&format=json&jsoncallback=?`,
     {}
   ).then(function (data) {
-    console.log(data);
     let length = data.photos.photo.length;
 
     $.each(data.photos.photo, function (i, photo) {
@@ -264,14 +261,11 @@ function getCollectionPhotos(id, photosets, galleryCard, galleryNumber) {
                   <p>${desc.description._content}</p>
               </div>`,
           });
-          console.log(length);
-          console.log(dynamicE.length);
           if (dynamicE.length == length) {
             collections.unshift([galleryCard, dynamicE, galleryNumber]);
           }
           if (collections.length == photosets) {
             localStorage.setItem("collections", JSON.stringify(collections));
-            console.log(collections);
             checkReload();
           }
         });
@@ -292,7 +286,6 @@ function getBackground() {
       localStorage.getItem("backgrounds") === null ||
       length != JSON.parse(localStorage.getItem("backgrounds")).length
     ) {
-      console.log(data.photos.photo);
       $.each(data.photos.photo, function (i, photo) {
         $.getJSON(
           `https://api.flickr.com/services/rest?api_key=${api_key}&method=flickr.photos.getSizes&photo_id=${photo.id}&format=json&jsoncallback=?`,
@@ -302,7 +295,6 @@ function getBackground() {
           backgroundSource = sizes.size[sizes.size.length - 2].source;
           backgrounds.push(backgroundSource);
           if (backgrounds.length == length) {
-            console.log("Pushing backgrounds");
             localStorage.setItem("backgrounds", JSON.stringify(backgrounds));
             checkReload();
           }

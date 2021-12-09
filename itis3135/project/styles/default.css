@@ -222,6 +222,13 @@ body {
   padding-top: 30px;
 }
 
+.cardImage {
+  height: 165px;
+  width: 250px;
+  object-fit: cover;
+  margin-top: auto;
+}
+
 .about:first-child {
   margin-top: 30px;
 }
@@ -249,8 +256,8 @@ a:active {
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   margin: 45px;
-  max-width: 250px;
-  max-height: 230px;
+  width: 250px;
+  height: 230px;
 }
 
 .gallery-info {
