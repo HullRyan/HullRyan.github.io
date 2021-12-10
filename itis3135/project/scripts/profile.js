@@ -1,6 +1,8 @@
 //User ID to dsplay from Flickr
 
+//Ryan's account
 //var user_id = "192658515@N08";
+//Sarah's account
 var user_id = "194563521@N02";
 
 //API key
