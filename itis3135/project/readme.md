@@ -89,7 +89,7 @@ These are under the _photos I like_ section on the web app.
 - Font Awesome
   - For icons
 - Vibrant.js
-  - For dynacally extracting colors from images
+  - For dynamically extracting colors from images
 - lightGallery.js
   - For image gallery
 

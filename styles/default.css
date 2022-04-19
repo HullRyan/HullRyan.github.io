@@ -38,7 +38,11 @@ h2 {
 .heading a:hover {
     color: var(--imperial-red);
 }
-
+.divider {
+    border-top: 1px solid var(--honeydew);
+    margin-top: 5px;
+    margin-bottom: 13px;
+}
 .name {
     font-size: 300%;
     letter-spacing: 4px;
